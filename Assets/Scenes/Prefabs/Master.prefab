@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2610177492413094562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2610177492413094556}
+  - component: {fileID: 2610177492413094557}
+  - component: {fileID: 3961558422587223289}
+  m_Layer: 0
+  m_Name: Master
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2610177492413094556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610177492413094562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 669.28986, y: 325.20526, z: -7.8540454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2610177492413094557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610177492413094562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61eda91b465754446b6df7aaa252b13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: hit
+    Clip: {fileID: 8300000, guid: e14c8c861677d7e4496ce8d37084d305, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: die
+    Clip: {fileID: 8300000, guid: e1c61904588294a4a968ed55094efe16, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: bow
+    Clip: {fileID: 8300000, guid: a4b0bf6450a625f449542d3dcdfc0a39, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: arrow
+    Clip: {fileID: 8300000, guid: 2d5f8512c99c99245967fa8b3ff41c54, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: dragondie
+    Clip: {fileID: 8300000, guid: dc8b9d48c1e18c249b808d39941897b2, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: dragongrowl
+    Clip: {fileID: 8300000, guid: ab4df8656360fc6458a821ce263e5bf1, type: 3}
+    Volume: 0.874
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: powerup
+    Clip: {fileID: 8300000, guid: 0f54fec033fcbdf45a6463b3e7c376ee, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: sword
+    Clip: {fileID: 8300000, guid: 60c10bd03a5a395498923f13ea2fd58a, type: 3}
+    Volume: 0.6
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: villager
+    Clip: {fileID: 8300000, guid: 87ed823543dbc33459b7148ceb22bc3b, type: 3}
+    Volume: 0.6
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: wings
+    Clip: {fileID: 8300000, guid: 6c877a5d9751e5f41b52772ef240f08a, type: 3}
+    Volume: 0.898
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: anvil
+    Clip: {fileID: 8300000, guid: c9d179b028187d8438f50470748e1849, type: 3}
+    Volume: 0.6
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: Menu
+    Clip: {fileID: 8300000, guid: 193148b2f847e1041b3cb265eaaccaf3, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: 1
+    Clip: {fileID: 8300000, guid: a0c5478bf0d336649ae634aeedf21fb7, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: 2
+    Clip: {fileID: 8300000, guid: 8b357dd462b0c924bb9e617d3b11b66d, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: explode
+    Clip: {fileID: 8300000, guid: 83089be0643817946abe25ebe130ee59, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: end
+    Clip: {fileID: 8300000, guid: 0a6bbe18a544f4a4f92f840129fe6cac, type: 3}
+    Volume: 0.602
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: stronghold
+    Clip: {fileID: 8300000, guid: 794824163d436c744ac58918d26188e7, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: enter
+    Clip: {fileID: 8300000, guid: 91330b072de31b94595e2f40fd9a8835, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: cave1
+    Clip: {fileID: 8300000, guid: b7524617ba270e64eb838b76c5b374a5, type: 3}
+    Volume: 0.644
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  - name: cave2
+    Clip: {fileID: 8300000, guid: 32906042128482f4f8c9311e420bb64b, type: 3}
+    Volume: 0.644
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  track: {fileID: 0}
+  cave: {fileID: 0}
+--- !u!114 &3961558422587223289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610177492413094562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912684706670b6541ad1d8fbefec9d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
