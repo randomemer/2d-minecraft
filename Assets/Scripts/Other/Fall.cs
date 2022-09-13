@@ -23,7 +23,7 @@ public class Fall : MonoBehaviour
     {
         if (collision.gameObject.name == "Player" && Falling)
         {
-            PlayerHealth.StaticDie();
+            FindObjectOfType<PlayerHealth>().Die();
         }
         FindObjectOfType<AudioManager>().PLay("anvil");
     }

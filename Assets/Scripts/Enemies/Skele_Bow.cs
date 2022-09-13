@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Skele_Bow : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class Skele_Bow : MonoBehaviour
         InvokeRepeating("Rattle", 3f, 4f);
     }
     void Shoot()
-    { 
+    {
         Instantiate(arrowPrefab, firepoint.position, firepoint.rotation);
         FindObjectOfType<AudioManager>().PLay("bow");
     }
@@ -36,7 +34,7 @@ public class Skele_Bow : MonoBehaviour
         {
             allowfire = false;
         }
-        else 
+        else
         {
             allowfire = true;
         }

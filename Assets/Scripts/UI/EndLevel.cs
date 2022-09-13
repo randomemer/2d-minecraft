@@ -10,7 +10,7 @@ public class EndLevel : MonoBehaviour
         {
             GameUI.SetActive(false);
             animator.SetTrigger("End");
-            FindObjectOfType<AudioManager>().PauseAudio();
+            FindObjectOfType<AudioManager>()?.PauseAudio();
             Levls.levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
             Levls.Save();
         }
