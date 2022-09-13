@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Hints : MonoBehaviour
 {
     public Dialogue dialogue;
-    public Text BodtText;
-    public GameObject Panel;
-    public GameObject UI;
+    public Text bodyText;
+    public GameObject panel;
+    public GameObject ui;
     GameObject gm;
     CharacterMovement movement;
     public static Dictionary<string, string> vs = new Dictionary<string, string>();
@@ -31,9 +31,9 @@ public class Hints : MonoBehaviour
         {
             return;
         }
-        Panel.SetActive(true);
-        UI.SetActive(false);
-        BodtText.text = vs[name];
+        panel.SetActive(true);
+        ui.SetActive(false);
+        bodyText.text = vs[name];
         vs.Remove(name);
         //gm.SetActive(false);
         //movement.controller.input = new Vector2(0, 0);
@@ -42,8 +42,8 @@ public class Hints : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1f;
-        Panel.SetActive(false);
-        UI.SetActive(true);
+        panel.SetActive(false);
+        ui.SetActive(true);
         //gm.SetActive(true);
         //movement.controller.input = new Vector2(0, 0);
     }

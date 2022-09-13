@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
@@ -9,31 +9,51 @@ public class Portal : MonoBehaviour
     public GameObject Cam2;
     public GameObject DragonBar;
     public GameObject PlayerBar;
+    [SerializeField] private EnderEyePowerUp[] enderEyes;
+    private AudioManager audioManager;
+    private List<GameObject> children = new List<GameObject>();
     public static bool InEnd = false;
-    private void Start()
+    private bool hasCollectedAllEyes = false;
+
+    private void Awake()
     {
-        if (InEnd)
-        {
-            Cam1.SetActive(false); Cam2.SetActive(true);
-            PlayerBar.SetActive(true); DragonBar.SetActive(true);
-            FindObjectOfType<AudioManager>().Switch();
-        }
+        enderEyes = FindObjectsOfType<EnderEyePowerUp>(true);
+        audioManager = FindObjectOfType<AudioManager>(true);
+        foreach (Transform item in transform) children.Add(item.gameObject);
+        if (InEnd) SwitchToEnd();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (hasCollectedAllEyes && collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.position = Bed3.transform.position;
-            StartCoroutine(Wait(1f));
             InEnd = true;
-            FindObjectOfType<AudioManager>().Switch();
+            StartCoroutine(Wait(1f));
         }
     }
     IEnumerator Wait(float x)
     {
         yield return new WaitForSeconds(x);
-        Cam1.SetActive(false); Cam2.SetActive(true);
+        SwitchToEnd();
+    }
+
+    private void SwitchToEnd()
+    {
+        Cam1.SetActive(false);
+        Cam2.SetActive(true);
         PlayerBar.SetActive(true);
         DragonBar.SetActive(true);
+        audioManager?.Switch();
+    }
+
+    public void CheckEnderEyes()
+    {
+        for (int i = 0; i < enderEyes.Length; i++)
+        {
+            if (!enderEyes[i].isCollected) return;
+        }
+        hasCollectedAllEyes = true;
+        foreach (var item in children) item.SetActive(true);
     }
 }

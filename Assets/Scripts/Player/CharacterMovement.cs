@@ -8,35 +8,16 @@ public class CharacterMovement : MonoBehaviour
     public static bool jump = false;
     public Joystick controller;
     public Animator animator;
-    public Animator slash;
-    GameObject bow;
-    GameObject Sword;
+
     private void Awake()
     {
-        Sword = gameObject.transform.GetChild(1).gameObject;
-        bow = gameObject.transform.GetChild(2).gameObject;
     }
 
     void Update()
     {
         move = Input.GetAxisRaw("Horizontal") * runspeed;
-        
-        if (Input.GetButtonDown("jump"))
-        {
-            jump = true;
-        }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (Sword.gameObject.activeSelf)
-            {
-                FindObjectOfType<Sword>().Attack();
-                slash.SetTrigger("F");
-            }
-            if (bow.gameObject.activeSelf)
-            {
-                FindObjectOfType<Bow>().Shoot();
-            }
-        }
+        if (Input.GetButtonDown("jump")) jump = true;
+
         /*if (controller.Horizontal >= 0.2f)
         {
             move = runspeed;
@@ -50,20 +31,16 @@ public class CharacterMovement : MonoBehaviour
             move = 0f;
         }*/
 
-        if (Mathf.Abs(move) > 0f)
-        {
-            animator.SetBool("Running",true);
-        }
-        else if (move == 0f)
-        {
-            animator.SetBool("Running", false);
-        }
+        if (Mathf.Abs(move) > 0f) animator.SetBool("Running", true);
+        else if (move == 0f) animator.SetBool("Running", false);
     }
+
     void FixedUpdate()
     {
         controller2D.Move(move * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
+
     public void Jump()
     {
         jump = true;

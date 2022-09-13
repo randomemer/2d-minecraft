@@ -4,33 +4,39 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public bool Paused;
+    private AudioManager audioManager;
+    // private bool paused;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+
     public void Pause()
     {
-        FindObjectOfType<AudioManager>().PauseAudio();
+        audioManager?.PauseAudio();
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
-        Paused = true;
+        // paused = true;
     }
     public void Resume()
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
-        FindObjectOfType<AudioManager>().ResumeAudio();
-        Paused = false;
+        audioManager?.ResumeAudio();
+        // paused = false;
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelManager.LoadNewScene(SceneManager.GetActiveScene().buildIndex, true);
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
-        GameMaster.ResetVar();
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        LevelManager.LoadNewScene(0, true);
         Time.timeScale = 1f;
-        GameMaster.ResetVar();
     }
 
 }

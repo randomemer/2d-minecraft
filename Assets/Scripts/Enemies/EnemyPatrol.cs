@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    protected bool isMoving = true;
+    protected bool isMovingRight = true;
     public float speed;
-    bool isMovingRight = true;
+    public bool usesTurnTag;
     public Transform groundDetection;
 
-    void Update()
+    protected virtual void Update()
     {
         Move();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("turn")) changeDirection();
+    }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -21,14 +28,19 @@ public class EnemyPatrol : MonoBehaviour
 
     void Move()
     {
+        if (!isMoving) return;
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
-        if (!groundinfo.collider)
-        {
-            isMovingRight = !isMovingRight;
-            float y = (isMovingRight) ? -180 : 0;
-            transform.eulerAngles = new Vector3(0, y, 0);
-        }
 
+        if (usesTurnTag) return;
+
+        RaycastHit2D groundinfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
+        if (!groundinfo.collider) changeDirection();
+    }
+
+    void changeDirection()
+    {
+        isMovingRight = !isMovingRight;
+        float y = (isMovingRight) ? 0 : -180;
+        transform.eulerAngles = new Vector3(0, y, 0);
     }
 }

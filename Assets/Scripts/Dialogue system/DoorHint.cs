@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DoorHint : MonoBehaviour
 {
-    public Hints hints;
+    private Hints hints;
     private void Awake()
     {
         hints = GameObject.FindObjectOfType<Hints>();
@@ -13,7 +11,7 @@ public class DoorHint : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            hints.DisplayHint(gameObject.name);
+            hints.DisplayHint("DoorHintTrigger");
         }
     }
 }

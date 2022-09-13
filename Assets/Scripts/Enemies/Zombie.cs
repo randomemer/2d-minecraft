@@ -7,11 +7,12 @@ public class Zombie : EnemyPatrol
         InvokeRepeating("Groan", 4f, 4f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerHealth>().Die();
+            FindObjectOfType<Player>().Kill();
         }
     }
 

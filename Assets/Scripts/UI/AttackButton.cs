@@ -2,19 +2,16 @@
 
 public class AttackButton : MonoBehaviour
 {
-    public GameObject sword;
-    public GameObject bow;
-    public Animator Animator;
+    private Player player;
+
+    private void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
     public void ButtonClick()
     {
-        if (sword.gameObject.activeSelf)
-        {
-            FindObjectOfType<Sword>().Attack();
-            Animator.SetTrigger("F");
-        }
-        if (bow.gameObject.activeSelf)
-        {
-            FindObjectOfType<Bow>().Shoot();
-        }
+        if (player.sword.isActive) player.sword.Attack();
+        if (player.bow.isActive) player.bow.Shoot();
     }
 }

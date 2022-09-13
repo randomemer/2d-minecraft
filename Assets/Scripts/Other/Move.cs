@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 public class Move : MonoBehaviour
 {
     public float speed;
@@ -15,20 +13,22 @@ public class Move : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        switch (collision.gameObject.name)
+        {
+            case "Shield":
+                Shield.damage();
+                break;
+            case "Player":
+                FindObjectOfType<Player>().Kill();
+                break;
+            case "Ender Dragon":
+                TheDragon.dragonHealth -= 5;
+                break;
+            default:
+                break;
+        }
 
-        if (collision.gameObject.name == "Shield")
-        {
-            Shield.damage();
-        }
-        else if (collision.gameObject.name == "Player")
-        {
-            PlayerHealth.StaticDie();
-        }
-        if (collision.gameObject.name == "Ender Dragon")
-        {
-            TheDragon.dragonHealth -= 5;
-        }
         Destroy(gameObject);
-        FindObjectOfType<AudioManager>().PLay("arrow");
+        FindObjectOfType<AudioManager>()?.PLay("arrow");
     }
 }

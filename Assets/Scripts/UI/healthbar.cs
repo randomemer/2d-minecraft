@@ -4,15 +4,14 @@ using UnityEngine.UI;
 public class healthbar : MonoBehaviour
 {
     public Slider slider;
-    PlayerHealth shit;
+    private Player shit;
     private void Awake()
     {
-        shit = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        shit = FindObjectOfType<Player>();
     }
     private void Update()
     {
-        string name = gameObject.name;
-        switch (name)
+        switch (gameObject.name)
         {
             case "Durability Bar":
                 slider.value = Shield.durability;

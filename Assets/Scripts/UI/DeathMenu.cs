@@ -7,11 +7,11 @@ public class DeathMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameMaster.ResetVar();
+        LevelManager.ResetState();
     }
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
-        GameMaster.ResetVar();
+        LevelManager.ResetState();
     }
 }
