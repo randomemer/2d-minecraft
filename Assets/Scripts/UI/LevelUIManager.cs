@@ -6,17 +6,12 @@ public class LevelUIManager : MonoBehaviour
 {
     [SerializeField] private Animator DeathUIAnimator;
     [SerializeField] private Animator LevelCompleteAnimator;
-    private AudioManager audioManager;
+    private AudioManager audioManager = AudioManager.instance;
 
     // Hearts UI
     [SerializeField] private Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-
-    private void Awake()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
 
     private void Start()
     {
@@ -49,7 +44,7 @@ public class LevelUIManager : MonoBehaviour
         gameObject.SetActive(false);
         LevelCompleteAnimator.SetTrigger("End");
         audioManager?.PauseAudio();
-        Levls.levels[SceneManager.GetActiveScene().buildIndex - 1] = true;
+        Levls.levels[LevelManager.sceneIndex - 1] = true;
         Levls.Save();
     }
 }

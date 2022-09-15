@@ -4,47 +4,55 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-    public static AudioManager intan;
-    [HideInInspector]
-    public AudioSource track;
-    [HideInInspector]
-    public AudioSource cave;
-    GameObject Player;
-    bool pause;
+    public static AudioManager instance;
+    [SerializeField] private Sound[] sounds;
+    private AudioSource mainMenuTrack;
+    [HideInInspector] public AudioSource curTrack;
+
     private void Awake()
     {
-        if (intan == null)
+        if (instance == null)
         {
-            intan = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
 
-        foreach (Sound item in sounds)
-        {
-            item.source = gameObject.AddComponent<AudioSource>();
-            item.source.clip = item.Clip;
-            item.source.pitch = item.Pitch;
-            item.source.volume = item.Volume;
-            item.source.loop = item.loop;
-            item.source.spatialBlend = item.SpatialBlend;
-            item.source.maxDistance = item.Maxdistance;
-            item.source.minDistance = item.Mindistance;
-            item.source.rolloffMode = AudioRolloffMode.Linear;
-        }
-        cave = Find("cave");
+        InitSounds();
+        mainMenuTrack = Find("Menu");
+        curTrack = mainMenuTrack;
         SceneManager.activeSceneChanged += this.IAssign;
-        Assign();
-
     }
+
+    private void InitSounds()
+    {
+        foreach (Sound item in sounds) RegisterAudioSource(item);
+    }
+
+    public static void RegisterAudioSource(Sound sound)
+    {
+        if (instance == null || sound.Clip == null) return;
+
+        sound.source = instance.gameObject.AddComponent<AudioSource>();
+        sound.source.clip = sound.Clip;
+        sound.source.pitch = sound.Pitch;
+        sound.source.volume = sound.Volume;
+        sound.source.loop = sound.loop;
+        sound.source.spatialBlend = sound.SpatialBlend;
+        sound.source.maxDistance = sound.Maxdistance;
+        sound.source.minDistance = sound.Mindistance;
+        sound.source.rolloffMode = AudioRolloffMode.Linear;
+    }
+
     private void Start()
     {
-        track.Play();
+        curTrack?.Play();
     }
+
     public void PLay(string name)
     {
         Sound S = Array.Find(sounds, sound => sound.name == name);
@@ -55,112 +63,63 @@ public class AudioManager : MonoBehaviour
         }
         S.source.Play();
     }
+
     public void Stop()
     {
-        foreach (Sound S in sounds)
-        {
-            S.source.Stop();
-        }
+        foreach (Sound sound in sounds) sound.source.Stop();
     }
+
     public AudioSource Find(string name)
     {
         Sound S = Array.Find(sounds, sound => sound.name == name);
         if (S == null)
         {
-            Debug.LogWarning("Audio " + name + " not found");
+            Debug.LogWarning($"Audio : {name} not found");
             return null;
         }
         return S.source;
     }
-    void IAssign(Scene arg1, Scene arg2)
+
+    private void IAssign(Scene prevScene, Scene curScene)
     {
-        Assign();
-    }
-    void Assign()
-    {
-        int scene = SceneManager.GetActiveScene().buildIndex;
-        if (!(track == null))
+        LevelManager levelManager = LevelManager.instance ?? FindObjectOfType<LevelManager>();
+
+        if (levelManager != null)
         {
-            track.Stop();
-        }
-        try
-        {
-            if (cave.isPlaying && !(cave == null))
-            {
-                cave.Stop();
-            }
-        }
-        catch (Exception)
-        {
+            if (levelManager.levelTrack?.source == null) RegisterAudioSource(levelManager.levelTrack);
+            if (levelManager.caveTrack?.source == null) RegisterAudioSource(levelManager.caveTrack);
         }
 
-        if (scene == 0)
-        {
-            track = Find("Menu");
-        }
-        else if (scene == 1 || scene == 2 || scene == 4)
-        {
-            track = Find("1");
-            cave = Find("cave2");
-        }
-        else if (scene == 3)
-        {
-            track = Find("2");
-            cave = Find("cave1");
-        }
-        else if (scene == 5)
-        {
-            track = Find("stronghold");
-        }
-        else
-        {
-            track = null;
-        }
-        if (track != null)
-        {
-            track.Play();
-        }
-        pause = false;
-    }
-    private void Update()
-    {
-        int x = SceneManager.GetActiveScene().buildIndex;
-        if (x == 3 || x == 4)
-        {
-            Player = GameObject.Find("Player");
-            if (Player.transform.position.y > -6f && !track.isPlaying && !pause)
-            {
+        if (instance.curTrack != null) instance.curTrack.Stop();
 
-                track.Play();
-                cave.Pause();
-            }
-            else if (!cave.isPlaying && Player.transform.position.y < -6f && !pause)
-            {
-                track.Pause();
-                cave.Play();
-            }
-        }
+        if (curScene.buildIndex == 0) instance.curTrack = instance.mainMenuTrack;
+        else instance.curTrack = levelManager?.levelTrack.source;
+
+        if (instance.curTrack != null) instance.curTrack.Play();
+        Debug.Log($"{AudioManager.instance.GetComponents<AudioSource>().Length} Audio Sources");
     }
+
+    public static void SwitchTracks(bool onSurface)
+    {
+        instance.curTrack.Pause();
+        instance.curTrack = onSurface ? LevelManager.instance?.levelTrack.source : LevelManager.instance?.caveTrack.source;
+        instance.curTrack?.Play();
+    }
+
     public void PauseAudio()
     {
-        track.Pause();
-        cave.Pause();
-        pause = true;
-    }
-    public void ResumeAudio()
-    {
-        pause = false;
-        int x = SceneManager.GetActiveScene().buildIndex;
-        if (x == 5 || x == 1 || x == 2)
-        {
-            track.Play();
-        }
-    }
-    public void Switch()
-    {
-        track.Stop();
-        track = Find("end");
-        track.Play();
+        curTrack?.Pause();
     }
 
+    public void ResumeAudio()
+    {
+        curTrack?.Play();
+    }
+
+    public void Switch()
+    {
+        curTrack?.Stop();
+        instance.curTrack = Find("end");
+        curTrack?.Play();
+    }
 }

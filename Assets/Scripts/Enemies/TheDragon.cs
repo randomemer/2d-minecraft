@@ -2,18 +2,17 @@
 
 public class TheDragon : MonoBehaviour
 {
-    bool moveRight = false;
-    public float speed;
-    public GameObject player;
-    public GameObject sprite;
-    public GameObject ball;
-    public GameObject firework;
-    float lastsht;
-    Player shit;
-    public static int dragonHealth = 100;
+    private bool moveRight = false;
+    [SerializeField] private float speed;
+    [SerializeField] private GameObject sprite;
+    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject firework;
+    [SerializeField] private End gameEnd;
+    private float lastsht;
+    private Player shit;
+    public static float dragonHealth = 100f;
     public static bool isDead = false;
-    public Animator Animator;
-    bool called = true;
+    [SerializeField] private Animator Animator;
     private AudioManager audioManager;
 
     private void Awake()
@@ -38,13 +37,6 @@ public class TheDragon : MonoBehaviour
         else transform.Translate(-1 * Time.deltaTime * speed, 0, 0);
 
         if ((Time.time > lastsht + 2f) && Portal.InEnd) Shoot();
-
-        if (called && dragonHealth <= 0f)
-        {
-            Die();
-            called = false;
-        }
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,7 +47,7 @@ public class TheDragon : MonoBehaviour
             sprite.transform.rotation = Quaternion.Euler(0, y, -28.18f);
             moveRight = !moveRight;
         }
-        if (collision.gameObject == player) MeeleAttack();
+        if (collision.gameObject == shit.gameObject) MeeleAttack();
     }
     void Shoot()
     {
@@ -77,15 +69,24 @@ public class TheDragon : MonoBehaviour
     {
         isDead = true;
         audioManager?.PLay("dragondie");
-        audioManager?.track.Stop();
-        Instantiate(firework, player.transform.position, Quaternion.identity);
+        audioManager?.curTrack?.Stop();
+        Instantiate(firework, shit.transform.position, Quaternion.identity);
+        Debug.Log("Killing Dragon");
+        gameEnd.gameObject.SetActive(true);
         Destroy(gameObject);
-
     }
+
+    public void TakeDamage(float damage)
+    {
+        dragonHealth = Mathf.Max(0f, dragonHealth - damage);
+        if (dragonHealth == 0f) Die();
+    }
+
     void Growl()
     {
         audioManager?.PLay("dragongrowl");
     }
+
     void Flap()
     {
         audioManager?.PLay("wings");

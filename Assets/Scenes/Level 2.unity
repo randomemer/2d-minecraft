@@ -154,7 +154,7 @@ Transform:
   - {fileID: 842895820}
   - {fileID: 1093374388}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &51075015
 LightingSettings:
@@ -514,7 +514,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &288865071
 GameObject:
@@ -551,7 +551,7 @@ Transform:
   - {fileID: 1555043631}
   - {fileID: 908015488}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378941266
 GameObject:
@@ -661,7 +661,7 @@ Transform:
   - {fileID: 672765453}
   - {fileID: 1393315134}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426311272
 GameObject:
@@ -4696,7 +4696,7 @@ Transform:
   - {fileID: 926443476}
   - {fileID: 1505192795}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &613919274
 BoxCollider2D:
@@ -4865,7 +4865,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &734056000
 MonoBehaviour:
@@ -5016,7 +5016,7 @@ PrefabInstance:
     - target: {fileID: 1467090345367792384, guid: 6df6d34866d362d4a943c552a7c361f6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1467090345367792384, guid: 6df6d34866d362d4a943c552a7c361f6,
         type: 3}
@@ -5436,6 +5436,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1939790637}
     m_Modifications:
+    - target: {fileID: 1186391973342356103, guid: 61cf727340452d2418014fd72d8d9d83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1948544242}
+    - target: {fileID: 1186391973342356103, guid: 61cf727340452d2418014fd72d8d9d83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 1989967155617720449, guid: 61cf727340452d2418014fd72d8d9d83,
         type: 3}
       propertyPath: m_RootOrder
@@ -5738,7 +5748,7 @@ Transform:
   m_Children:
   - {fileID: 537681543}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &894237997
 GameObject:
@@ -6090,7 +6100,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &930432953
 MonoBehaviour:
@@ -6105,6 +6115,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {x: -3.9, y: 0.2, z: 0}
+  levelTrack:
+    name: level_track_1
+    Clip: {fileID: 8300000, guid: a0c5478bf0d336649ae634aeedf21fb7, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  caveTrack:
+    name: 
+    Clip: {fileID: 0}
+    Volume: 0
+    Pitch: 0
+    source: {fileID: 0}
+    loop: 0
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
 --- !u!1001 &999177904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6456,7 +6486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1216452667
 GameObject:
@@ -6556,7 +6586,7 @@ PrefabInstance:
     - target: {fileID: 6456340787637148241, guid: 8599949beca485f4a893fb3e96335adc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6456340787637148241, guid: 8599949beca485f4a893fb3e96335adc,
         type: 3}
@@ -6977,7 +7007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7708667323180926, guid: 27cb42ada7541f34e83fd4811e392e77, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7708667323180926, guid: 27cb42ada7541f34e83fd4811e392e77, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7813,7 +7843,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1833508969
 MonoBehaviour:
@@ -7945,7 +7975,7 @@ RectTransform:
   - {fileID: 1948544241}
   - {fileID: 1368434256}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7972,7 +8002,7 @@ PrefabInstance:
     - target: {fileID: 8397424979483986447, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8397424979483986447, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
@@ -8082,6 +8112,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1948544240}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1948544242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8397424979483986444, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1948544240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d0105e8bc80c74aa4a3ede2596150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1997508351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8222,7 +8264,7 @@ Transform:
   m_Children:
   - {fileID: 1216452668}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2071926010
 MonoBehaviour:

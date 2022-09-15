@@ -247,7 +247,9 @@ MonoBehaviour:
   player: {fileID: 0}
   shouldRespawn: 1
   isCollected: 0
-  Bubble: {fileID: 0}
+  collectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &13153278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -485,6 +487,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1939790637}
     m_Modifications:
+    - target: {fileID: 1186391973342356103, guid: 61cf727340452d2418014fd72d8d9d83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2130116039}
+    - target: {fileID: 1186391973342356103, guid: 61cf727340452d2418014fd72d8d9d83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 1989967155617720449, guid: 61cf727340452d2418014fd72d8d9d83,
         type: 3}
       propertyPath: m_RootOrder
@@ -616,6 +628,12 @@ GameObject:
 --- !u!224 &161046712 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2538805694966482148, guid: 61cf727340452d2418014fd72d8d9d83,
+    type: 3}
+  m_PrefabInstance: {fileID: 161046710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &161046713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5298112528404252735, guid: 61cf727340452d2418014fd72d8d9d83,
     type: 3}
   m_PrefabInstance: {fileID: 161046710}
   m_PrefabAsset: {fileID: 0}
@@ -1093,7 +1111,9 @@ MonoBehaviour:
   player: {fileID: 0}
   shouldRespawn: 0
   isCollected: 0
-  Bubble: {fileID: 0}
+  collectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &408026928
 GameObject:
   m_ObjectHideFlags: 0
@@ -9842,6 +9862,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {x: -7.15, y: -1.21, z: 0}
+  levelTrack:
+    name: level_track_2
+    Clip: {fileID: 8300000, guid: 8b357dd462b0c924bb9e617d3b11b66d, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
+  caveTrack:
+    name: cave_track_1
+    Clip: {fileID: 8300000, guid: b7524617ba270e64eb838b76c5b374a5, type: 3}
+    Volume: 1
+    Pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    SpatialBlend: 0
+    Maxdistance: 0
+    Mindistance: 0
 --- !u!1001 &945778270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11863,7 +11903,7 @@ PrefabInstance:
         type: 3}
       propertyPath: durabilitybar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 161046713}
     - target: {fileID: 6456340786832150121, guid: 8599949beca485f4a893fb3e96335adc,
         type: 3}
       propertyPath: m_IsActive
@@ -11944,6 +11984,11 @@ PrefabInstance:
       propertyPath: skele
       value: 
       objectReference: {fileID: 540047773}
+    - target: {fileID: 6456340787637148243, guid: 8599949beca485f4a893fb3e96335adc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6456340787637148244, guid: 8599949beca485f4a893fb3e96335adc,
         type: 3}
       propertyPath: controller
@@ -12135,7 +12180,9 @@ MonoBehaviour:
   player: {fileID: 0}
   shouldRespawn: 1
   isCollected: 0
-  Bubble: {fileID: 0}
+  collectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2069068194
 GameObject:
   m_ObjectHideFlags: 0
@@ -12508,6 +12555,97 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2130116037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2130116039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8397424979483986444, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130116037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d0105e8bc80c74aa4a3ede2596150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &483158727676066586
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 54.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551435, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551444, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: m_Name
+      value: CaveEntrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 483158729211551445, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: caveCamera
+      value: 
+      objectReference: {fileID: 9407926}
+    - target: {fileID: 483158729211551445, guid: 573f5f5ae589ebb4d869414e733bb210,
+        type: 3}
+      propertyPath: surfaceCamera
+      value: 
+      objectReference: {fileID: 2071926007}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 573f5f5ae589ebb4d869414e733bb210, type: 3}
 --- !u!1001 &1467090344936496977
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class Move : MonoBehaviour
                 FindObjectOfType<Player>().Kill();
                 break;
             case "Ender Dragon":
-                TheDragon.dragonHealth -= 5;
+                collision.gameObject.GetComponent<TheDragon>().TakeDamage(5f);
                 break;
             default:
                 break;

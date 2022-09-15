@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class PowerUp : MonoBehaviour
 {
@@ -6,9 +7,7 @@ public class PowerUp : MonoBehaviour
     public bool shouldRespawn;
     [HideInInspector] public bool isCollected;
     protected Hints hints;
-
-    // other
-    public GameObject Bubble;
+    [HideInInspector] public UnityEvent collectedEvent;
 
     private void Awake()
     {
@@ -23,18 +22,7 @@ public class PowerUp : MonoBehaviour
         FindObjectOfType<AudioManager>()?.PLay("powerup");
         gameObject.SetActive(false);
         isCollected = true;
+        collectedEvent.Invoke();
         return true;
-    }
-    private void Update()
-    {
-        // if (emeraldCount >= 2 && called4)
-        // {
-        //     try
-        //     {
-        //         Bubble.gameObject.SetActive(true);
-        //         called4 = false;
-        //     }
-        //     catch (System.Exception) { }
-        // }
     }
 }

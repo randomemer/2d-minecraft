@@ -30,7 +30,10 @@ public class Sword : PlayerAbility
         Collider2D[] results = Physics2D.OverlapCircleAll(gameObject.transform.position, radius, layer);
         if (results.Length == 0) return;
 
-        if (results[0].gameObject.name == "Ender Dragon") TheDragon.dragonHealth -= 10;
+        if (results[0].gameObject.name == "Ender Dragon")
+        {
+            gameObject.GetComponent<TheDragon>().TakeDamage(10f);
+        }
         else Destroy(results[0]);
 
     }

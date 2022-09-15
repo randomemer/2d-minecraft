@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class Portal : MonoBehaviour
 {
-    public GameObject Bed3;
-    public GameObject Cam1;
-    public GameObject Cam2;
-    public GameObject DragonBar;
-    public GameObject PlayerBar;
+    [SerializeField] private GameObject Bed3;
+    [SerializeField] private GameObject Cam1;
+    [SerializeField] private GameObject Cam2;
+    [SerializeField] private GameObject DragonBar;
+    [SerializeField] private GameObject PlayerBar;
     [SerializeField] private EnderEyePowerUp[] enderEyes;
-    private AudioManager audioManager;
+    private AudioManager audioManager = AudioManager.instance;
     private List<GameObject> children = new List<GameObject>();
     public static bool InEnd = false;
     private bool hasCollectedAllEyes = false;
@@ -20,6 +20,11 @@ public class Portal : MonoBehaviour
         enderEyes = FindObjectsOfType<EnderEyePowerUp>(true);
         audioManager = FindObjectOfType<AudioManager>(true);
         foreach (Transform item in transform) children.Add(item.gameObject);
+    }
+
+    private void Start()
+    {
+        CheckEnderEyes();
         if (InEnd) SwitchToEnd();
     }
 

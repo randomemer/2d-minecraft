@@ -12,6 +12,7 @@ public class Levls : MonoBehaviour
         {
             if (!levels[i])
             {
+                // change this
                 Button button = GameObject.Find((i + 2).ToString()).GetComponent<Button>();
                 button.interactable = false;
             }

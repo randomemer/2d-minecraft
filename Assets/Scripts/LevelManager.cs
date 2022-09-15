@@ -6,20 +6,24 @@ public class LevelManager : MonoBehaviour
 {
     // Persisting Variables
     public static LevelManager instance;
-    private static int sceneIndex;
+    public static int sceneIndex;
     public static int lastBedIndex = 0;
     public static Vector3 respawnPoint;
     public static LevelUIManager ui;
+    public static Player player;
 
     // Instance varibles
     public Vector3 spawnpoint;
+    public Sound levelTrack;
+    public Sound caveTrack;
     [HideInInspector] public Dictionary<string, PowerUp> powerUps;
     [HideInInspector] public Dictionary<string, PlayerAbility> playerAbilities;
 
     private void Awake()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        ui = FindObjectOfType<LevelUIManager>();
+        ui = FindObjectOfType<LevelUIManager>(true);
+        player = FindObjectOfType<Player>(true);
 
         powerUps = getDictionaryFromArray<PowerUp>(FindObjectsOfType<PowerUp>(true));
         playerAbilities = getDictionaryFromArray<PlayerAbility>(FindObjectsOfType<PlayerAbility>(true));
@@ -33,6 +37,14 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            // Cleanup un-used audio sources
+            Destroy(instance.levelTrack.source);
+            Destroy(instance.caveTrack.source);
+
+            // Assign references
+            instance.levelTrack = levelTrack;
+            instance.caveTrack = caveTrack;
+
             // Remember state of player abilities
             foreach (var item in playerAbilities)
             {
@@ -58,13 +70,21 @@ public class LevelManager : MonoBehaviour
 
     public static void ResetState()
     {
+        // Reset Variables
         Player.curHealth = 3;
         Shield.durability = 10;
         TheDragon.dragonHealth = 100;
+        CaveBoundary.onSurface = null;
         Hints.vs.Clear();
         Portal.InEnd = false;
         lastBedIndex = 0;
         respawnPoint = new Vector3();
+
+        // Clean up references
+        Destroy(instance.levelTrack.source);
+        Destroy(instance.caveTrack.source);
+        instance.levelTrack = null;
+        instance.caveTrack = null;
         Destroy(instance);
         instance = null;
     }

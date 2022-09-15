@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 82982795888414882}
   - component: {fileID: 6456340787637148246}
   - component: {fileID: 6456340787637148244}
-  - component: {fileID: 6456340787637148243}
   - component: {fileID: 758720757085229763}
   m_Layer: 0
   m_Name: Player
@@ -578,21 +577,6 @@ MonoBehaviour:
   runspeed: 69.3
   controller: {fileID: 0}
   animator: {fileID: 758720757085229763}
---- !u!114 &6456340787637148243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6456340787637148242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf5c7b1ec38a97438fb033fd62f7ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam1: {fileID: 0}
-  cam2: {fileID: 0}
-  skele: {fileID: 0}
 --- !u!95 &758720757085229763
 Animator:
   serializedVersion: 4

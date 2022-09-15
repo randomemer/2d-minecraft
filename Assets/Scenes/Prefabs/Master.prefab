@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 669.28986, y: 325.20526, z: -7.8540454}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -153,24 +154,6 @@ MonoBehaviour:
     SpatialBlend: 0
     Maxdistance: 0
     Mindistance: 0
-  - name: 1
-    Clip: {fileID: 8300000, guid: a0c5478bf0d336649ae634aeedf21fb7, type: 3}
-    Volume: 1
-    Pitch: 1
-    source: {fileID: 0}
-    loop: 1
-    SpatialBlend: 0
-    Maxdistance: 0
-    Mindistance: 0
-  - name: 2
-    Clip: {fileID: 8300000, guid: 8b357dd462b0c924bb9e617d3b11b66d, type: 3}
-    Volume: 1
-    Pitch: 1
-    source: {fileID: 0}
-    loop: 1
-    SpatialBlend: 0
-    Maxdistance: 0
-    Mindistance: 0
   - name: explode
     Clip: {fileID: 8300000, guid: 83089be0643817946abe25ebe130ee59, type: 3}
     Volume: 1
@@ -189,15 +172,6 @@ MonoBehaviour:
     SpatialBlend: 0
     Maxdistance: 0
     Mindistance: 0
-  - name: stronghold
-    Clip: {fileID: 8300000, guid: 794824163d436c744ac58918d26188e7, type: 3}
-    Volume: 1
-    Pitch: 1
-    source: {fileID: 0}
-    loop: 1
-    SpatialBlend: 0
-    Maxdistance: 0
-    Mindistance: 0
   - name: enter
     Clip: {fileID: 8300000, guid: 91330b072de31b94595e2f40fd9a8835, type: 3}
     Volume: 1
@@ -207,26 +181,7 @@ MonoBehaviour:
     SpatialBlend: 0
     Maxdistance: 0
     Mindistance: 0
-  - name: cave1
-    Clip: {fileID: 8300000, guid: b7524617ba270e64eb838b76c5b374a5, type: 3}
-    Volume: 0.644
-    Pitch: 1
-    source: {fileID: 0}
-    loop: 0
-    SpatialBlend: 0
-    Maxdistance: 0
-    Mindistance: 0
-  - name: cave2
-    Clip: {fileID: 8300000, guid: 32906042128482f4f8c9311e420bb64b, type: 3}
-    Volume: 0.644
-    Pitch: 1
-    source: {fileID: 0}
-    loop: 0
-    SpatialBlend: 0
-    Maxdistance: 0
-    Mindistance: 0
-  track: {fileID: 0}
-  cave: {fileID: 0}
+  curTrack: {fileID: 0}
 --- !u!114 &3961558422587223289
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
+    public UnityEvent keysCollectedEvent = new UnityEvent();
     [SerializeField] private PowerUp[] keys;
     [SerializeField] private GameObject openDoor;
     [SerializeField] private GameObject closeDoor;
-    private bool isOpen = false;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (!isOpen) CheckKeys();
+        foreach (PowerUp key in keys)
+        {
+            key.collectedEvent.AddListener(CheckKeys);
+        }
     }
 
     private void CheckKeys()
@@ -19,8 +22,8 @@ public class Door : MonoBehaviour
         {
             if (!item.isCollected) return;
         }
-        isOpen = true;
         openDoor.SetActive(true);
         closeDoor.SetActive(false);
+        keysCollectedEvent.Invoke();
     }
 }

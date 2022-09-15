@@ -685,7 +685,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -2753,9 +2753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250d123c973876b4ba46cac4b6959d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 0}
-  bow: {fileID: 0}
-  Animator: {fileID: 0}
 --- !u!114 &1749084892357069618
 MonoBehaviour:
   m_ObjectHideFlags: 0
