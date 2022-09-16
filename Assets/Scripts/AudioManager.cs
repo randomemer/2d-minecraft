@@ -83,11 +83,7 @@ public class AudioManager : MonoBehaviour
 
     private void IAssign(Scene prevScene, Scene curScene)
     {
-        var old = LevelManager.instance;
-        var newOne = FindObjectOfType<LevelManager>();
-        Debug.Log($"Old : {old?.GetInstanceID()}, New : {newOne?.GetInstanceID()}");
-        LevelManager levelManager = old ?? newOne;
-        // LevelManager levelManager = LevelManager.instance ?? FindObjectOfType<LevelManager>();
+        LevelManager levelManager = LevelManager.instance ?? FindObjectOfType<LevelManager>();
 
         if (levelManager != null)
         {
