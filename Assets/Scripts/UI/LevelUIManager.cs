@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -46,5 +47,16 @@ public class LevelUIManager : MonoBehaviour
         audioManager?.PauseAudio();
         Levls.levels[LevelManager.sceneIndex - 1] = true;
         Levls.Save();
+    }
+
+    public void ShowGameEnd()
+    {
+        IEnumerator LoadEndScene()
+        {
+            yield return new WaitForSeconds(5f);
+            Debug.Log("Changing Scene");
+            SceneManager.LoadScene("End");
+        }
+        StartCoroutine(LoadEndScene());
     }
 }

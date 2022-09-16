@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
         playerAbilities = getDictionaryFromArray<PlayerAbility>(FindObjectsOfType<PlayerAbility>(true));
 
         if (respawnPoint == new Vector3()) respawnPoint = spawnpoint;
+        player.transform.position = respawnPoint;
 
         if (instance == null)
         {

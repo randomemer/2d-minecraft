@@ -13,12 +13,11 @@ public class TheDragon : MonoBehaviour
     public static float dragonHealth = 100f;
     public static bool isDead = false;
     [SerializeField] private Animator Animator;
-    private AudioManager audioManager;
+    private AudioManager audioManager = AudioManager.instance;
 
     private void Awake()
     {
         shit = FindObjectOfType<Player>();
-        audioManager = FindObjectOfType<AudioManager>();
         if (isDead) Destroy(gameObject);
     }
 
@@ -38,6 +37,7 @@ public class TheDragon : MonoBehaviour
 
         if ((Time.time > lastsht + 2f) && Portal.InEnd) Shoot();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("turn"))
@@ -49,30 +49,33 @@ public class TheDragon : MonoBehaviour
         }
         if (collision.gameObject == shit.gameObject) MeeleAttack();
     }
+
     void Shoot()
     {
         Instantiate(ball, gameObject.transform.position, Quaternion.identity);
         lastsht = Time.time;
     }
+
     public void AcidAttack()
     {
         shit.fightHealth -= 0.25f;
         audioManager?.PLay("hit");
     }
+
     void MeeleAttack()
     {
         shit.fightHealth -= 5f;
         Animator.SetTrigger("Hit");
         audioManager?.PLay("hit");
     }
+
     void Die()
     {
         isDead = true;
         audioManager?.PLay("dragondie");
         audioManager?.curTrack?.Stop();
         Instantiate(firework, shit.transform.position, Quaternion.identity);
-        Debug.Log("Killing Dragon");
-        gameEnd.gameObject.SetActive(true);
+        LevelManager.ui.ShowGameEnd();
         Destroy(gameObject);
     }
 
@@ -91,5 +94,4 @@ public class TheDragon : MonoBehaviour
     {
         audioManager?.PLay("wings");
     }
-
 }

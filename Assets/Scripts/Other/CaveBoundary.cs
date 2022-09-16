@@ -8,6 +8,7 @@ public class CaveBoundary : MonoBehaviour
 
     private void Start()
     {
+        onSurface = LevelManager.player.transform.position.y > transform.position.y;
         SwitchCameras();
     }
 
@@ -22,6 +23,7 @@ public class CaveBoundary : MonoBehaviour
 
     private void SwitchCameras()
     {
+        Debug.Log("Switch Cameras");
         if (onSurface == null) return;
         caveCamera.SetActive(onSurface == false);
         surfaceCamera.SetActive(onSurface == true);

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -82,7 +83,11 @@ public class AudioManager : MonoBehaviour
 
     private void IAssign(Scene prevScene, Scene curScene)
     {
-        LevelManager levelManager = LevelManager.instance ?? FindObjectOfType<LevelManager>();
+        var old = LevelManager.instance;
+        var newOne = FindObjectOfType<LevelManager>();
+        Debug.Log($"Old : {old?.GetInstanceID()}, New : {newOne?.GetInstanceID()}");
+        LevelManager levelManager = old ?? newOne;
+        // LevelManager levelManager = LevelManager.instance ?? FindObjectOfType<LevelManager>();
 
         if (levelManager != null)
         {
@@ -96,12 +101,20 @@ public class AudioManager : MonoBehaviour
         else instance.curTrack = levelManager?.levelTrack.source;
 
         if (instance.curTrack != null) instance.curTrack.Play();
+        // StartCoroutine(this.checkAudioSources());
+    }
+
+    /*
+    private IEnumerator checkAudioSources()
+    {
+        yield return new WaitForSeconds(1.5f);
         Debug.Log($"{AudioManager.instance.GetComponents<AudioSource>().Length} Audio Sources");
     }
+    */
 
     public static void SwitchTracks(bool onSurface)
     {
-        instance.curTrack.Pause();
+        if (instance.curTrack != null) instance.curTrack.Pause();
         instance.curTrack = onSurface ? LevelManager.instance?.levelTrack.source : LevelManager.instance?.caveTrack.source;
         instance.curTrack?.Play();
     }

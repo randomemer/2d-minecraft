@@ -27,11 +27,6 @@ public class Player : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
     }
 
-    private void Start()
-    {
-        gameObject.transform.position = LevelManager.respawnPoint;
-    }
-
     private void Update()
     {
         if (fightHealth <= 0) Kill();

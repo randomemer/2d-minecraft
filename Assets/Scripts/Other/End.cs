@@ -13,10 +13,10 @@ public class End : MonoBehaviour
     public IEnumerator EndGame()
     {
         // Show fireworks for a while
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4f);
         // Show credits for a while
         creditsPanel.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
         // Go back to main screen
         SceneManager.LoadScene(0);
     }
