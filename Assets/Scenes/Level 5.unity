@@ -15763,11 +15763,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 8397424979483986672, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8397424980076562004, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
       propertyPath: m_fontAsset
@@ -15780,11 +15775,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21665961339033122, guid: 855731edda5bafd43bef16c4e097e616,
         type: 2}
+    - target: {fileID: 8397424980076562004, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 8397424980076562004, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8397424981039031241, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294924544
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397424981039031241, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 8397424981085663855, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
       propertyPath: m_fontAsset
@@ -15797,6 +15807,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21665961339033122, guid: 855731edda5bafd43bef16c4e097e616,
         type: 2}
+    - target: {fileID: 8397424981085663855, guid: 2f39721887cf26e4a95602d1d59cd4f1,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 8397424981085663855, guid: 2f39721887cf26e4a95602d1d59cd4f1,
         type: 3}
       propertyPath: m_hasFontAssetChanged

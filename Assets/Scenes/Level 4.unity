@@ -24606,44 +24606,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 8397424979483986672, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8397424980076562004, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 855731edda5bafd43bef16c4e097e616,
-        type: 2}
-    - target: {fileID: 8397424980076562004, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8397424981085663855, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 855731edda5bafd43bef16c4e097e616,
-        type: 2}
-    - target: {fileID: 8397424981085663855, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8397424981566937618, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 855731edda5bafd43bef16c4e097e616,
-        type: 2}
-    - target: {fileID: 8397424981566937618, guid: 2f39721887cf26e4a95602d1d59cd4f1,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f39721887cf26e4a95602d1d59cd4f1, type: 3}
 --- !u!224 &2130116038 stripped
