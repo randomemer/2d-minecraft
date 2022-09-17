@@ -32,7 +32,7 @@ public class Sword : PlayerAbility
 
         if (results[0].gameObject.name == "Ender Dragon")
         {
-            gameObject.GetComponent<TheDragon>().TakeDamage(10f);
+            results[0].GetComponent<TheDragon>().TakeDamage(10f);
         }
         else Destroy(results[0]);
 

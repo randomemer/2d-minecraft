@@ -1,34 +1,63 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
 public class Move : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody2D rb;
+    [SerializeField] private float speed;
+    [SerializeField] private float hitRadius;
+    private Collider2D arrowCollider;
+    private int hitCount = 0;
+
+    private void Awake()
+    {
+        arrowCollider = GetComponent<Collider2D>();
+    }
+
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        GetComponent<Rigidbody2D>().velocity = transform.right * speed;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (hitCount > 0) return;
+
+        hitCount += 1;
+        Destroy(gameObject);
+        AudioManager.instance?.PLay("arrow");
+
+        if (collider2D.gameObject.CompareTag("Enemy")) Destroy(collider2D.gameObject);
+
+
+        Vector3 arrowTip = arrowCollider.ClosestPoint(collider2D.bounds.center);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(arrowTip, hitRadius);
+        Dictionary<string, Collider2D> colliderMap = new Dictionary<string, Collider2D>();
+
+        // string objects = "";
+        foreach (Collider2D collider in colliders)
         {
-            Destroy(collision.gameObject);
-        }
-        switch (collision.gameObject.name)
-        {
-            case "Shield":
-                Shield.damage();
-                break;
-            case "Player":
-                FindObjectOfType<Player>().Kill();
-                break;
-            case "Ender Dragon":
-                collision.gameObject.GetComponent<TheDragon>().TakeDamage(5f);
-                break;
-            default:
-                break;
+            colliderMap[collider.gameObject.name] = collider;
+            // objects += $"{collider.name} ";
         }
 
-        Destroy(gameObject);
-        FindObjectOfType<AudioManager>()?.PLay("arrow");
+        // Debug.Log($"Arrow Hit : {transform.position}, Player : ${FindObjectOfType<Player>().transform.position}");
+        // Debug.LogWarning(objects);
+
+        if (colliderMap.ContainsKey("Player"))
+        {
+            if (colliderMap.ContainsKey("Shield")) Shield.damage();
+            else colliderMap["Player"].gameObject.GetComponent<Player>().Kill();
+        }
+        else if (colliderMap.ContainsKey("Ender Dragon"))
+        {
+            colliderMap["Ender Dragon"].gameObject.GetComponent<TheDragon>().TakeDamage(5f);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(GetComponent<Collider2D>().bounds.center, hitRadius);
     }
 }

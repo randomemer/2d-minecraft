@@ -23,7 +23,6 @@ public class CaveBoundary : MonoBehaviour
 
     private void SwitchCameras()
     {
-        Debug.Log("Switch Cameras");
         if (onSurface == null) return;
         caveCamera.SetActive(onSurface == false);
         surfaceCamera.SetActive(onSurface == true);

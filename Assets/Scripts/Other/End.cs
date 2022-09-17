@@ -19,5 +19,6 @@ public class End : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         // Go back to main screen
         SceneManager.LoadScene(0);
+        LevelManager.ResetState();
     }
 }
