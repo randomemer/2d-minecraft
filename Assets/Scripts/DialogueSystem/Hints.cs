@@ -10,13 +10,16 @@ public class Hints : MonoBehaviour
     public Text bodyText;
     public GameObject panel;
     public GameObject ui;
-    GameObject gm;
-    CharacterMovement movement;
+    private CharacterMovement movement;
     public static Dictionary<string, string> vs = new Dictionary<string, string>();
+
+    private void Awake()
+    {
+        movement = FindObjectOfType<CharacterMovement>();
+    }
+
     private void Start()
     {
-        gm = GameObject.Find("Fixed Joystick");
-        movement = FindObjectOfType<CharacterMovement>();
         if (vs.Count == 0)
         {
             for (int i = 0; i < dialogue.names.Length; i++)
@@ -27,24 +30,21 @@ public class Hints : MonoBehaviour
     }
     public void DisplayHint(string name)
     {
-        if (!vs.ContainsKey(name))
-        {
-            return;
-        }
+        if (!vs.ContainsKey(name)) return;
+
         panel.SetActive(true);
         ui.SetActive(false);
         bodyText.text = vs[name];
         vs.Remove(name);
-        //gm.SetActive(false);
-        //movement.controller.input = new Vector2(0, 0);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
+
+        // Reset joystick state (mimic a pointer up event)
+        movement.controller.OnPointerUp(null);
     }
     public void Continue()
     {
         Time.timeScale = 1f;
         panel.SetActive(false);
         ui.SetActive(true);
-        //gm.SetActive(true);
-        //movement.controller.input = new Vector2(0, 0);
     }
 }
