@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6456340786828643118}
-  - component: {fileID: 6456340786828643116}
+  - component: {fileID: 3640414127018634831}
   - component: {fileID: 6456340786828643119}
   - component: {fileID: 6456340786828643282}
   m_Layer: 0
@@ -34,8 +34,8 @@ Transform:
   m_Father: {fileID: 6456340787637148241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6456340786828643116
-BoxCollider2D:
+--- !u!68 &3640414127018634831
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -47,19 +47,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23, y: 0.08328134}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3764706, y: 0.7058824}
-    newSize: {x: 0.3764706, y: 0.7058824}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.29}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.07204169, y: -0.5844693}
+  - {x: 0.0701673, y: -0.27799052}
+  - {x: 0.15994309, y: -0.22800986}
+  - {x: 0.16257165, y: 0.10919559}
+  - {x: 0.15509227, y: 0.7178878}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!212 &6456340786828643119
 SpriteRenderer:
   m_ObjectHideFlags: 0

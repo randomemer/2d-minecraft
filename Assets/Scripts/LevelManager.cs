@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour
         Player.curHealth = 3;
         Shield.durability = 10;
         TheDragon.dragonHealth = 100;
+        TheDragon.isDead = false;
         CaveBoundary.onSurface = null;
         Hints.vs.Clear();
         Portal.InEnd = false;

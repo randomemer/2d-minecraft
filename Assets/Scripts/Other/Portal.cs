@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Portal : MonoBehaviour
 {
+    // Static Vars
+    public static bool InEnd = false;
+    // Instance Vars
     [SerializeField] private GameObject Bed3;
     [SerializeField] private GameObject Cam1;
     [SerializeField] private GameObject Cam2;
@@ -12,7 +15,6 @@ public class Portal : MonoBehaviour
     [SerializeField] private EnderEyePowerUp[] enderEyes;
     private AudioManager audioManager = AudioManager.instance;
     private List<GameObject> children = new List<GameObject>();
-    public static bool InEnd = false;
     private bool hasCollectedAllEyes = false;
 
     private void Awake()

@@ -2,6 +2,11 @@
 
 public class TheDragon : MonoBehaviour
 {
+    // Static variables
+    public static float dragonHealth = 100f;
+    public static bool isDead = false;
+
+    // Instance Variables
     private bool moveRight = false;
     [SerializeField] private float speed;
     [SerializeField] private GameObject sprite;
@@ -10,8 +15,6 @@ public class TheDragon : MonoBehaviour
     [SerializeField] private End gameEnd;
     private float lastsht;
     private Player shit;
-    public static float dragonHealth = 100f;
-    public static bool isDead = false;
     [SerializeField] private Animator Animator;
     private AudioManager audioManager = AudioManager.instance;
 
@@ -35,7 +38,7 @@ public class TheDragon : MonoBehaviour
         if (moveRight) transform.Translate(Time.deltaTime * speed, 0, 0);
         else transform.Translate(-1 * Time.deltaTime * speed, 0, 0);
 
-        if ((Time.time > lastsht + 2f) && Portal.InEnd) Shoot();
+        if ((Time.time > lastsht + 3f) && Portal.InEnd) Shoot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

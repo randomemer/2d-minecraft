@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class Move : MonoBehaviour
@@ -34,22 +33,13 @@ public class Move : MonoBehaviour
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(arrowTip, hitRadius);
         Dictionary<string, Collider2D> colliderMap = new Dictionary<string, Collider2D>();
+        foreach (Collider2D collider in colliders) colliderMap[collider.gameObject.name] = collider;
 
-        // string objects = "";
-        foreach (Collider2D collider in colliders)
+        if (colliderMap.ContainsKey("Player") && !colliderMap.ContainsKey("Shield"))
         {
-            colliderMap[collider.gameObject.name] = collider;
-            // objects += $"{collider.name} ";
+            colliderMap["Player"].gameObject.GetComponent<Player>().Kill();
         }
-
-        // Debug.Log($"Arrow Hit : {transform.position}, Player : ${FindObjectOfType<Player>().transform.position}");
-        // Debug.LogWarning(objects);
-
-        if (colliderMap.ContainsKey("Player"))
-        {
-            if (colliderMap.ContainsKey("Shield")) Shield.damage();
-            else colliderMap["Player"].gameObject.GetComponent<Player>().Kill();
-        }
+        else if (colliderMap.ContainsKey("Shield")) Shield.damage();
         else if (colliderMap.ContainsKey("Ender Dragon"))
         {
             colliderMap["Ender Dragon"].gameObject.GetComponent<TheDragon>().TakeDamage(5f);

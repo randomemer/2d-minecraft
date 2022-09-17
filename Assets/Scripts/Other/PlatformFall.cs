@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformFall : MonoBehaviour
@@ -14,7 +13,7 @@ public class PlatformFall : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             Invoke("Fall", 0.3f);
             rb.isKinematic = true;
